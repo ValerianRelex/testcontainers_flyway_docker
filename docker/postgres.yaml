@@ -1,0 +1,10 @@
+version: '3'
+services:
+  base-docker-project-pg:
+    image: postgres:13.3
+    environment:
+      - POSTGRES_USER=docker_admin
+      - POSTGRES_PASSWORD=docker_admin
+      - POSTGRES_DB=docker_db
+    ports:
+      - '5431:5432'

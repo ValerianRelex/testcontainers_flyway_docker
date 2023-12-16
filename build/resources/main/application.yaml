@@ -1,0 +1,18 @@
+server:
+  port: 8088
+
+spring:
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+
+  datasource:
+    url: jdbc:postgresql://localhost:5431/docker_db
+    username: docker_admin
+    password: docker_admin
+
+  flyway:
+    locations: 'classpath:db.migrations'
+    url: jdbc:postgresql://localhost:5431/docker_db
+    user: docker_admin
+    password: docker_admin
