@@ -39,7 +39,7 @@ class TempControllerTest {
 
     @Test
     void getTempFrom() throws Exception {
-        MvcResult mvcResult = mockMvc.perform(get("http:// localhost:8088/Orenburg"))
+        MvcResult mvcResult = mockMvc.perform(get("http://localhost:8088/Orenburg"))
                         .andExpect(status().is2xxSuccessful()).andReturn();
 
 

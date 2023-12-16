@@ -5,6 +5,7 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +22,9 @@ public class Temp implements Serializable {
     @Column
     private String city;
     @Column
-    private Double tempInC;
-    @Column
+    private Double tempInCelsius;
+
+    @Transient
     private Double tempInF; // TODO: значение лучше выcxитывать в сервисе, чем хранить в БД, чтоб не забивать данными
 
 }

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.418s</div>
+<div class="counter">0.542s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,8 +76,8 @@
 <a name="getTempFrom()"></a>
 <h3 class="failures">getTempFrom()</h3>
 <span class="code">
-<pre>jakarta.servlet.ServletException: Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_inc,t1_0.temp_inf from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
-  Position: 59] [n/a]; SQL [n/a]
+<pre>jakarta.servlet.ServletException: Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_in_celsius from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
+  Position: 52] [n/a]; SQL [n/a]
 	at app//org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
 	at app//org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
 	at app//jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
@@ -184,8 +184,8 @@
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_inc,t1_0.temp_inf from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
-  Position: 59] [n/a]; SQL [n/a]
+Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_in_celsius from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
+  Position: 52] [n/a]; SQL [n/a]
 	at app//org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
 	at app//org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
 	at app//org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
@@ -198,7 +198,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC
 	at app//org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
 	at app//org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at app//org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249)
-	at app/jdk.proxy3/jdk.proxy3.$Proxy132.save(Unknown Source)
+	at app/jdk.proxy3/jdk.proxy3.$Proxy133.save(Unknown Source)
 	at app//ru.swvalerian.testcontainersdemo.rest.TempController.getTempFrom(TempController.java:24)
 	at java.base@17.0.9/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17.0.9/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -214,8 +214,8 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC
 	at app//org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
 	at app//org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
 	... 105 more
-Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_inc,t1_0.temp_inf from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
-  Position: 59] [n/a]
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_in_celsius from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
+  Position: 52] [n/a]
 	at app//org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at app//org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at app//org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -270,13 +270,13 @@ Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing
 	at java.base@17.0.9/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base@17.0.9/java.lang.reflect.Method.invoke(Method.java:568)
 	at app//org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:360)
-	at app/jdk.proxy3/jdk.proxy3.$Proxy128.merge(Unknown Source)
+	at app/jdk.proxy3/jdk.proxy3.$Proxy129.merge(Unknown Source)
 	at java.base@17.0.9/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17.0.9/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base@17.0.9/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base@17.0.9/java.lang.reflect.Method.invoke(Method.java:568)
 	at app//org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
-	at app/jdk.proxy3/jdk.proxy3.$Proxy128.merge(Unknown Source)
+	at app/jdk.proxy3/jdk.proxy3.$Proxy129.merge(Unknown Source)
 	at app//org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
 	at java.base@17.0.9/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17.0.9/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -302,7 +302,7 @@ Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing
 	at app//org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
 	... 126 more
 Caused by: org.postgresql.util.PSQLException: ERROR: relation &quot;temp&quot; does not exist
-  Position: 59
+  Position: 52
 	at app//org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
 	at app//org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
 	at app//org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
@@ -330,7 +330,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation &quot;temp&quot; d
 </thead>
 <tr>
 <td class="failures">getTempFrom()</td>
-<td class="failures">0.418s</td>
+<td class="failures">0.542s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -338,29 +338,29 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation &quot;temp&quot; d
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:44:00.755 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ru.swvalerian.testcontainersdemo.rest.TempControllerTest]: TempControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:44:00.856 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ru.swvalerian.testcontainersdemo.TestcontainersDemoApplication for test class ru.swvalerian.testcontainersdemo.rest.TempControllerTest
-14:44:00.948 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
-14:44:00.948 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-14:44:01.073 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-14:44:01.269 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
-14:44:01.269 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
-14:44:01.287 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+<pre>16:21:43.246 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ru.swvalerian.testcontainersdemo.rest.TempControllerTest]: TempControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:21:43.369 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ru.swvalerian.testcontainersdemo.TestcontainersDemoApplication for test class ru.swvalerian.testcontainersdemo.rest.TempControllerTest
+16:21:43.459 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+16:21:43.459 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+16:21:43.599 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+16:21:43.794 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+16:21:43.794 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+16:21:43.818 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
   Server Version: 24.0.7
   API Version: 1.43
   Operating System: Docker Desktop
   Total Memory: 15925 MB
-14:44:01.305 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Creating container for image: testcontainers/ryuk:0.5.1
-14:44:01.438 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
-14:44:01.520 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Container testcontainers/ryuk:0.5.1 is starting: 88ad640ec407a28b5967ade8b3fe0f077fe7a11908cdfdbdaa429c3283c713bb
-14:44:01.868 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Container testcontainers/ryuk:0.5.1 started in PT0.5625584S
-14:44:01.872 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
-14:44:01.872 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
-14:44:01.873 [Test worker] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
-14:44:01.873 [Test worker] INFO tc.postgres:13.3 -- Creating container for image: postgres:13.3
-14:44:01.911 [Test worker] INFO tc.postgres:13.3 -- Container postgres:13.3 is starting: e10e39081f2a684166ff180437cebc5caeb98ffd9557fb20219d37efac2182b1
-14:44:03.149 [Test worker] INFO tc.postgres:13.3 -- Container postgres:13.3 started in PT1.2752804S
-14:44:03.149 [Test worker] INFO tc.postgres:13.3 -- Container is started (JDBC URL: jdbc:postgresql://localhost:61554/test?loggerLevel=OFF)
+16:21:43.837 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Creating container for image: testcontainers/ryuk:0.5.1
+16:21:43.978 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+16:21:46.583 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Container testcontainers/ryuk:0.5.1 is starting: 2abf1040947d65d119822c9558cc64bb53fb0d630bff7b37c3e948bfd25b66b3
+16:21:49.754 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Container testcontainers/ryuk:0.5.1 started in PT5.9167128S
+16:21:49.758 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+16:21:49.759 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+16:21:49.759 [Test worker] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+16:21:49.760 [Test worker] INFO tc.postgres:13.3 -- Creating container for image: postgres:13.3
+16:21:53.829 [Test worker] INFO tc.postgres:13.3 -- Container postgres:13.3 is starting: f1c977187ef1f2dfde20129cc1977c58c918ddf30f3c9bee525127617466633d
+16:21:55.062 [Test worker] INFO tc.postgres:13.3 -- Container postgres:13.3 started in PT5.3024828S
+16:21:55.063 [Test worker] INFO tc.postgres:13.3 -- Container is started (JDBC URL: jdbc:postgresql://localhost:55960/test?loggerLevel=OFF)
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -370,39 +370,38 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation &quot;temp&quot; d
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2023-12-16T14:44:03.381+09:00  INFO 5664 --- [    Test worker] r.s.t.rest.TempControllerTest            : Starting TempControllerTest using Java 17.0.9 with PID 5664 (started by swvalerian in C:\Java\testcontainers-demo)
-2023-12-16T14:44:03.381+09:00  INFO 5664 --- [    Test worker] r.s.t.rest.TempControllerTest            : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-12-16T14:44:03.787+09:00  INFO 5664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-12-16T14:44:03.834+09:00  INFO 5664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interface.
-2023-12-16T14:44:04.234+09:00  INFO 5664 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
-2023-12-16T14:44:04.234+09:00  INFO 5664 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
-2023-12-16T14:44:04.234+09:00  INFO 5664 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2023-12-16T14:44:04.262+09:00  INFO 5664 --- [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5431/docker_db (PostgreSQL 13.3)
-2023-12-16T14:44:04.283+09:00  INFO 5664 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.009s)
-2023-12-16T14:44:04.283+09:00  WARN 5664 --- [    Test worker] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
-2023-12-16T14:44:04.300+09:00  INFO 5664 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema &quot;public&quot;: &lt;&lt; Empty Schema &gt;&gt;
-2023-12-16T14:44:04.303+09:00  INFO 5664 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Schema &quot;public&quot; is up to date. No migration necessary.
-2023-12-16T14:44:04.330+09:00  INFO 5664 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-12-16T14:44:04.365+09:00  INFO 5664 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2d459bda
-2023-12-16T14:44:04.366+09:00  INFO 5664 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-12-16T14:44:04.406+09:00  INFO 5664 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-12-16T14:44:04.453+09:00  INFO 5664 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2023-12-16T14:44:04.486+09:00  INFO 5664 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2023-12-16T14:44:04.664+09:00  INFO 5664 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-12-16T14:44:05.225+09:00  INFO 5664 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2023-12-16T14:44:05.228+09:00  INFO 5664 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-12-16T14:44:05.494+09:00  WARN 5664 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-16T14:44:05.776+09:00  INFO 5664 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-12-16T14:44:05.791+09:00  INFO 5664 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-12-16T14:44:05.791+09:00  INFO 5664 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-12-16T14:44:05.807+09:00  INFO 5664 --- [    Test worker] r.s.t.rest.TempControllerTest            : Started TempControllerTest in 2.615 seconds (process running for 5.658)
-2023-12-16T14:44:06.214+09:00  WARN 5664 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
-2023-12-16T14:44:06.214+09:00 ERROR 5664 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation &quot;temp&quot; does not exist
-  Position: 59
-2023-12-16T14:44:06.215+09:00  INFO 5664 --- [    Test worker] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command
+2023-12-16T16:21:55.293+09:00  INFO 20848 --- [    Test worker] r.s.t.rest.TempControllerTest            : Starting TempControllerTest using Java 17.0.9 with PID 20848 (started by swvalerian in C:\Java\testcontainers-demo)
+2023-12-16T16:21:55.293+09:00  INFO 20848 --- [    Test worker] r.s.t.rest.TempControllerTest            : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-12-16T16:21:55.714+09:00  INFO 20848 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-16T16:21:55.759+09:00  INFO 20848 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interface.
+2023-12-16T16:21:56.218+09:00  INFO 20848 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2023-12-16T16:21:56.218+09:00  INFO 20848 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2023-12-16T16:21:56.218+09:00  INFO 20848 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2023-12-16T16:21:56.248+09:00  INFO 20848 --- [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5431/docker_db (PostgreSQL 13.3)
+2023-12-16T16:21:56.278+09:00  INFO 20848 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.017s)
+2023-12-16T16:21:56.299+09:00  INFO 20848 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema &quot;public&quot;: 1
+2023-12-16T16:21:56.302+09:00  INFO 20848 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Schema &quot;public&quot; is up to date. No migration necessary.
+2023-12-16T16:21:56.341+09:00  INFO 20848 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-16T16:21:56.387+09:00  INFO 20848 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@59b98ad1
+2023-12-16T16:21:56.389+09:00  INFO 20848 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-16T16:21:56.425+09:00  INFO 20848 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-16T16:21:56.472+09:00  INFO 20848 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-16T16:21:56.521+09:00  INFO 20848 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-16T16:21:56.720+09:00  INFO 20848 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-16T16:21:57.331+09:00  INFO 20848 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-16T16:21:57.331+09:00  INFO 20848 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-16T16:21:57.613+09:00  WARN 20848 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-16T16:21:57.951+09:00  INFO 20848 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-12-16T16:21:57.951+09:00  INFO 20848 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-12-16T16:21:57.951+09:00  INFO 20848 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-12-16T16:21:57.967+09:00  INFO 20848 --- [    Test worker] r.s.t.rest.TempControllerTest            : Started TempControllerTest in 2.877 seconds (process running for 15.379)
+2023-12-16T16:21:58.464+09:00  WARN 20848 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2023-12-16T16:21:58.464+09:00 ERROR 20848 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation &quot;temp&quot; does not exist
+  Position: 52
+2023-12-16T16:21:58.467+09:00  INFO 20848 --- [    Test worker] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command
 
-org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_inc,t1_0.temp_inf from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
-  Position: 59] [n/a]
+org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select t1_0.id,t1_0.city,t1_0.temp_in_celsius from temp t1_0 where t1_0.id=?] [ERROR: relation &quot;temp&quot; does not exist
+  Position: 52] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
@@ -457,13 +456,13 @@ org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [selec
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
 	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:360) ~[spring-orm-6.1.1.jar:6.1.1]
-	at jdk.proxy3/jdk.proxy3.$Proxy128.merge(Unknown Source) ~[na:na]
+	at jdk.proxy3/jdk.proxy3.$Proxy129.merge(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-6.1.1.jar:6.1.1]
-	at jdk.proxy3/jdk.proxy3.$Proxy128.merge(Unknown Source) ~[na:na]
+	at jdk.proxy3/jdk.proxy3.$Proxy129.merge(Unknown Source) ~[na:na]
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621) ~[spring-data-jpa-3.2.0.jar:3.2.0]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -493,7 +492,7 @@ org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [selec
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.1.jar:6.1.1]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.1.jar:6.1.1]
-	at jdk.proxy3/jdk.proxy3.$Proxy132.save(Unknown Source) ~[na:na]
+	at jdk.proxy3/jdk.proxy3.$Proxy133.save(Unknown Source) ~[na:na]
 	at ru.swvalerian.testcontainersdemo.rest.TempController.getTempFrom(TempController.java:24) ~[main/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -614,7 +613,7 @@ org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [selec
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
 Caused by: org.postgresql.util.PSQLException: ERROR: relation &quot;temp&quot; does not exist
-  Position: 59
+  Position: 52
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
@@ -638,7 +637,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation &quot;temp&quot; d
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.5</a> at Dec 16, 2023, 2:44:10 PM</p>
+<a href="http://www.gradle.org">Gradle 8.5</a> at Dec 16, 2023, 4:21:59 PM</p>
 </div>
 </div>
 </body>

@@ -19,8 +19,8 @@ public class TempController {
 	Temp temp = new Temp();
 	temp.setId(UUID.randomUUID().toString());
 	temp.setCity(city);
-	temp.setTempInC(-25.0); // тестовые данные
-	temp.setTempInF(temp.getTempInC() * 1.8 + 32); // тестовые данные
+	temp.setTempInCelsius(-25.0); // тестовые данные
+	temp.setTempInF(temp.getTempInCelsius() * 1.8 + 32); // тестовые данные
 	return tempRepository.save(temp);
     }
 }
