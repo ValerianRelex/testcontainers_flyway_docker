@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -25,8 +26,15 @@ class TempControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private Environment environment;
+
     @Container
-    private static final PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:13.3"));
+    private static final PostgreSQLContainer<?> postgreSQLContainer =
+                    new PostgreSQLContainer<>(DockerImageName.parse("postgres:13.3"))
+                                    .withDatabaseName("table")
+                                    .withUsername("docker_admin")
+                                    .withPassword("docker_admin");
 
     @DynamicPropertySource
     static void configProperties(DynamicPropertyRegistry registry) {
@@ -34,8 +42,16 @@ class TempControllerTest {
         registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
         registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
         registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
+        registry.add("spring.flyway.url", postgreSQLContainer::getJdbcUrl);
+        registry.add("spring.flyway.password", postgreSQLContainer::getPassword);
+        registry.add("spring.flyway.username", postgreSQLContainer::getUsername);
     }
 
+    @Test
+    void test_dynamicPropertyValuesOfSpringEnvironment() {
+        assertThat(environment.getProperty("postgres.driver")).isEqualTo("org.postgresql.Driver");
+        assertThat(environment.getProperty("spring.datasource.username")).isEqualTo("docker_admin");
+    }
 
     @Test
     void getTempFrom() throws Exception {

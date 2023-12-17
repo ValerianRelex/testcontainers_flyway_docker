@@ -1,0 +1,18 @@
+spring:
+
+  datasource:
+    url: jdbc:postgresql://localhost:5431/docker_db
+    username: docker_admin
+    password: docker_admin
+
+
+# Если не указать datasource тогда тестконтейнер сам создат образ в докере и там создаст БД.
+#  datasource:
+#    url: jdbc:tc:postgresql:13.3:///docker_db
+
+
+  flyway:
+    locations: 'classpath:db/migrations'
+    url: jdbc:postgresql://localhost:5431/docker_db
+    user: docker_admin
+    password: docker_admin
