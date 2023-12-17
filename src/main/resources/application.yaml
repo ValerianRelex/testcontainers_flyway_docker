@@ -3,9 +3,9 @@ server:
 
 spring:
 # Если эту настройку для хибера убрать - тогда тесты будут падать. Чтобы не падали, нужно настроить миграцию flyway
-#  jpa:
-#    hibernate:
-#      ddl-auto: create
+  jpa:
+    hibernate:
+      ddl-auto: create
 
   datasource:
     url: jdbc:postgresql://localhost:5431/docker_db
